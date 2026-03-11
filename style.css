@@ -1,0 +1,388 @@
+/* Counting the Atoms — Style Sheet */
+/* Leopold-style: dark, serif, long-form reading */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a1a1a;
+  --bg-surface: #222;
+  --text: #e0ddd5;
+  --text-muted: #a09d94;
+  --text-dim: #6b6860;
+  --accent: #c4a35a;
+  --accent-hover: #d4b86a;
+  --link: #c4a35a;
+  --border: #333;
+  --max-width: 680px;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', 'Georgia', 'Times New Roman', serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Landing page */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 24px;
+}
+
+.landing-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.landing h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3em;
+  color: #fff;
+}
+
+.landing .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2.5em;
+  font-weight: 300;
+}
+
+.landing .intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 3em;
+  max-width: 600px;
+}
+
+.toc-landing {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-landing li {
+  margin-bottom: 1.8em;
+}
+
+.toc-landing a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: block;
+  transition: color 0.15s;
+}
+
+.toc-landing a:hover {
+  color: var(--accent);
+}
+
+.toc-landing .desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 0.3em;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Essay pages */
+.essay-header {
+  padding: 100px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.essay-header .series {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+}
+
+.essay-header .series a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.essay-header .series a:hover {
+  text-decoration: underline;
+}
+
+.essay-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.4em;
+}
+
+.essay-header .meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Table of contents */
+.essay-toc {
+  margin-bottom: 3em;
+  padding: 1.5em 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.essay-toc h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.essay-toc ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: toc;
+}
+
+.essay-toc li {
+  counter-increment: toc;
+  margin-bottom: 0.5em;
+}
+
+.essay-toc li::before {
+  content: counter(toc, upper-roman) ". ";
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.essay-toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.15s;
+}
+
+.essay-toc a:hover {
+  color: var(--accent);
+}
+
+/* Essay body */
+.essay-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 2.5em 0 0.8em;
+  line-height: 1.3;
+}
+
+.essay-body p {
+  margin-bottom: 1.3em;
+}
+
+.essay-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.essay-body em {
+  font-style: italic;
+}
+
+.essay-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.2em;
+  margin: 1.5em 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.essay-body a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: rgba(196, 163, 90, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+}
+
+.essay-body a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.essay-body ul, .essay-body ol {
+  margin: 1em 0 1.3em 1.5em;
+}
+
+.essay-body li {
+  margin-bottom: 0.4em;
+}
+
+/* Horizontal rules */
+.essay-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3em 0;
+}
+
+/* Pull quote / emphasis block */
+.pull-quote {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--accent);
+  font-style: italic;
+  margin: 2em 0;
+  padding: 0.5em 0;
+}
+
+/* Data callout */
+.data-callout {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.2em 1.5em;
+  margin: 1.5em 0;
+  font-size: 0.92rem;
+}
+
+.data-callout p {
+  margin-bottom: 0.6em;
+}
+
+.data-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sources */
+.sources {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border);
+}
+
+.sources h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.sources ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sources li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+/* Author bio */
+.author-bio {
+  margin-top: 3em;
+  padding: 2em 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* Navigation between parts */
+.essay-nav {
+  margin-top: 3em;
+  padding: 2em 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.essay-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+
+.essay-nav a:hover {
+  color: var(--accent-hover);
+}
+
+/* Footer */
+.site-footer {
+  padding: 3em 0 4em;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+
+  .landing {
+    padding: 60px 20px;
+  }
+
+  .landing h1 {
+    font-size: 2rem;
+  }
+
+  .toc-landing a {
+    font-size: 1.15rem;
+  }
+
+  .essay-header {
+    padding: 60px 0 30px;
+  }
+
+  .essay-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .essay-nav {
+    flex-direction: column;
+  }
+}
