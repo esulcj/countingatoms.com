@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We've Been Funding the Bits and Ignoring the Atoms — Counting the Atoms</title>
+  <meta name="description" content="The intelligence explosion has a supply chain. It runs through CNC machines. And CNC machines are running out of operators.">
+  <meta property="og:title" content="We've Been Funding the Bits and Ignoring the Atoms">
+  <meta property="og:description" content="The intelligence explosion has a supply chain. It runs through CNC machines. And CNC machines are running out of operators.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="We've Been Funding the Bits and Ignoring the Atoms">
+  <meta name="twitter:description" content="The intelligence explosion has a supply chain. It runs through CNC machines.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="essay-header">
+      <p class="series"><a href="index.html">Counting the Atoms</a> · Part I</p>
+      <h1>We've Been Funding the Bits and Ignoring the Atoms</h1>
+      <p class="meta">Theo Saville · March 2026</p>
+    </header>
+
+    <nav class="essay-toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#supply-chain">The Intelligence Explosion Has a Supply Chain</a></li>
+        <li><a href="#inside-datacenter">What's Actually Inside a Datacenter</a></li>
+        <li><a href="#workforce">The Workforce That Doesn't Exist</a></li>
+        <li><a href="#invisible-dependency">The Invisible Dependency</a></li>
+        <li><a href="#two-masters">The Same Workforce, Two Masters</a></li>
+        <li><a href="#market">Why the Market Hasn't Noticed</a></li>
+        <li><a href="#compound">The Compound Problem</a></li>
+        <li><a href="#what-needs-to-happen">What Actually Needs to Happen</a></li>
+        <li><a href="#bridge">The Bridge to Part 2</a></li>
+      </ol>
+    </nav>
+
+    <article class="essay-body">
+
+      <p>In June 2024, Leopold Aschenbrenner published <em>Situational Awareness</em> — a 165-page treatise arguing that superintelligence is coming by 2027, that nobody in power is treating the situation with appropriate seriousness, and that the race between the US and China for AI supremacy will define the century. It was meticulous. It was urgent. It was, in many ways, exactly right.</p>
+
+      <p>Leopold counted the OOMs in compute. He mapped the scaling laws. He projected the capital requirements and concluded that America would need to build infrastructure on a scale not seen since the Manhattan Project — trillion-dollar clusters, hundreds of gigawatts of new power generation, millions of GPUs running at densities that would have seemed absurd five years ago.</p>
+
+      <p>He missed one thing.</p>
+
+      <p class="pull-quote">Nobody counted the OOMs in atoms.</p>
+
+      <hr>
+
+      <h2 id="supply-chain">The Intelligence Explosion Has a Supply Chain</h2>
+
+      <p>Here is what the AI industry is doing right now: spending $602 billion in hyperscaler capex in 2026 alone — Amazon, Google, Microsoft, Meta, and Oracle — with roughly 75% of that going directly to AI infrastructure. Capital intensity is reaching 45–57% of revenue. Historically unthinkable levels. A 36% increase over 2025, which was itself a record.</p>
+
+      <p>These numbers are so large they've become abstract. So let me make them concrete.</p>
+
+      <p>Every dollar of that $602 billion eventually has to become a physical thing. A building with walls. A rack with servers. A GPU with a cooling system. A power plant with turbines. A cable tray, a busbar, a manifold, a cold plate. Before any of those dollars can train a model or serve an inference request, they must pass through the physical world — through factories, through machine shops, through the hands of people who cut metal for a living.</p>
+
+      <p>The AI industry has mapped its future in tokens, parameters, and floating-point operations. It has not mapped its future in atoms. And when you do — when you actually trace the physical supply chain of a modern AI datacenter — you find something that should alarm everyone who takes the intelligence explosion seriously.</p>
+
+      <p>The supply chain runs through CNC machines. And CNC machines are running out of operators.</p>
+
+      <hr>
+
+      <h2 id="inside-datacenter">What's Actually Inside a Datacenter</h2>
+
+      <p>If you've never set foot in a datacenter under construction, you might think it's mostly chips and cables. It isn't. A hyperscale datacenter is a vast industrial facility — part power plant, part cooling system, part precision manufacturing showcase. And a surprising amount of what goes inside it starts life as a block of aluminum or copper on a CNC milling machine.</p>
+
+      <p>Let me walk through the major machined components:</p>
+
+      <p><strong>Cold plates.</strong> This is the big one. As GPU power density increases — NVIDIA's GB200 runs at over 1,000 watts per chip — air cooling stops being viable. Direct liquid cooling becomes mandatory. And every liquid-cooled GPU needs a precision-machined cold plate: a slab of copper or aluminum with micro-channel structures machined to tight tolerances, designed to transfer heat from the chip to a liquid cooling loop. The NVIDIA GB200 NVL72 rack puts 72 GPUs in a single rack. That's 72 cold plates per rack. Multiply by the tens of thousands of racks going into these trillion-dollar clusters.</p>
+
+      <p><strong>Cooling manifolds.</strong> The liquid has to get to those cold plates somehow. Distribution manifolds — machined from aluminum or stainless steel with precise internal channels — route coolant through the system. Every cooling loop needs them.</p>
+
+      <p><strong>Busbars.</strong> Power distribution at datacenter scale requires massive copper busbars — CNC-milled to spec — carrying hundreds of amps to server racks. These aren't off-the-shelf components. Each datacenter design has custom power distribution requirements.</p>
+
+      <p><strong>Structural components.</strong> Server chassis, rack mounting hardware, rail systems, alignment brackets. High-volume CNC work that doesn't make headlines but doesn't make itself either.</p>
+
+      <p><strong>Heat sinks.</strong> Even in liquid-cooled facilities, secondary heat sinks are everywhere — networking equipment, power supplies, voltage regulators. CNC-machined aluminum with fin structures.</p>
+
+      <p><strong>Power infrastructure.</strong> And then there's the power plant. Hyperscalers are increasingly building their own dedicated generation — natural gas turbines, and soon, small modular nuclear reactors. Gas turbine components (blades, valve bodies, pump housings, flanges, pipe fittings) are all precision CNC machined. SMR components require even tighter tolerances. This is an entirely separate demand driver that compounds with the datacenter itself.</p>
+
+      <p>The liquid cooling market alone tells the story. It's currently worth $3–5 billion and is projected to reach $15–27 billion by 2030–35, growing at 18–33% CAGR depending on whose estimate you trust. That market is almost entirely dependent on precision-machined components. And it's just one slice of the datacenter supply chain.</p>
+
+      <div class="data-callout">
+        <p><strong>How much machining goes into a single datacenter?</strong></p>
+        <p>A bottom-up analysis of a reference 100MW hyperscale AI facility — component by component, rack by rack — puts the CNC machining content at <strong>$16–57 million per datacenter</strong>, with a base estimate of roughly $29 million. Liquid cooling dominates at ~60% of machining content, followed by power distribution (~25%) and structural/facility-level mechanical (~15%).</p>
+        <p>The numbers anchor well: Tom's Hardware reports cooling BOM of $49,860 per NVL72 rack. Multiply by 1,500 AI racks and you get $74.8 million in cooling hardware per facility — of which CNC machining is the primary value-add. NVIDIA's own technical documentation shows up to 200 kg of copper busbar per 1MW rack under their new 800VDC architecture.</p>
+        <p>Scale to the industry: if 160–200 equivalent facilities are built per year (consistent with JLL's projection of 97 GW new capacity from 2025–2030), total annual datacenter CNC machining demand reaches <strong>$8–20 billion per year</strong> — on top of existing defense, aerospace, automotive, and medical demand.</p>
+      </div>
+
+      <p>Here's what makes this structural rather than cyclical: the transition from air cooling to direct liquid cooling isn't optional. You cannot air-cool a GB200 rack. Physics won't let you. Every new AI datacenter being designed today requires liquid cooling, which means every new AI datacenter requires dramatically more precision-machined parts than the datacenters it replaces. The demand for machined components isn't growing linearly with datacenter buildout. It's growing on a steeper curve, because the machining content per datacenter is increasing at the same time the number of datacenters is increasing.</p>
+
+      <p>Nobody in the AI industry seems to be modeling this.</p>
+
+      <hr>
+
+      <h2 id="workforce">The Workforce That Doesn't Exist</h2>
+
+      <p>Now here's where it gets ugly.</p>
+
+      <p>The United States currently employs 354,800 machinists. That number comes from the Bureau of Labor Statistics, 2024 data — the most current available. The BLS projects this number will <em>decline</em> by 2% over the next decade. Not grow. Decline.</p>
+
+      <p>Sit with that for a moment. The AI industry is planning the largest infrastructure buildout in human history. The defense industry is simultaneously trying to rearm. Both depend on precision-machined components. And the workforce that makes those components is <em>shrinking</em>.</p>
+
+      <p>It gets worse when you look at the age profile. The three largest age cohorts in the machinist workforce are 55–59 (47,710 workers), 60–64 (43,797), and 50–54 (43,138). That's roughly 134,000 workers — 39% of the entire machinist workforce — in the age brackets approaching retirement. The average machinist in America is 47 years old. The peak of the distribution is in the late fifties.</p>
+
+      <p>This isn't a labor shortage in the way that Silicon Valley uses the term — meaning "we'd like to pay below-market rates and are surprised when people don't show up." This is a demographic time bomb. These workers are aging out, and the pipeline behind them is not remotely adequate. The BLS estimates 34,200 annual openings in machining. All of them are from replacement — people retiring or leaving the trade. Zero net growth. And even those replacement openings aren't being filled fast enough, which is why the total workforce is projected to shrink.</p>
+
+      <p>The Deloitte and Manufacturing Institute study quantified the broader crisis: 2.1 million manufacturing jobs could go unfilled by 2030, at a cost of up to $1 trillion to the US economy. That's not a projection from a think tank trying to drum up attention. That's Deloitte — the people who audit Fortune 500 companies — telling American industry that the workforce it depends on is disappearing.</p>
+
+      <p>Median machinist pay is $56,150 per year. That's $27.74 an hour. For a job that requires years of training, operates equipment worth hundreds of thousands of dollars, and holds tolerances measured in thousandths of an inch. You can make more driving for Uber in San Francisco. And then we wonder why young people aren't lining up.</p>
+
+      <p>The wage stagnation is itself a symptom of a deeper structural problem. Machine shops operate on thin margins. Their customers — the OEMs, the primes, the tier-1 suppliers — squeeze them on price. So shops can't aggressively bid up wages even when they desperately need people, because their customers won't absorb the cost increase. It creates a death spiral: low wages → fewer entrants → worse shortage → still can't raise wages → more people leave for better-paying trades.</p>
+
+      <p>Every machine shop owner I've spoken to in ten years of building manufacturing AI will tell you the same thing when you ask about their biggest problem. It's never materials. It's never machines. It's never demand. It's always the same answer: <em>I can't find people to program my machines.</em></p>
+
+      <p>Always.</p>
+
+      <hr>
+
+      <h2 id="invisible-dependency">The Invisible Dependency</h2>
+
+      <p>Leopold Aschenbrenner built his case on compute. He was right about the scaling laws, right about the capital requirements, right about the geopolitical stakes. But his framework treats the physical world as a solved problem — as if, once you allocate enough capital, the datacenters simply materialize.</p>
+
+      <p>They don't.</p>
+
+      <p>Capital is necessary but not sufficient. You need someone to build the thing. And "someone" isn't an abstraction — it's a specific person with specific skills, sitting at a specific CNC machine, in a specific shop, in a specific city in America. You cannot scale that person by throwing money at the problem. You cannot 10x the output of a machinist the way you can 10x GPU throughput with a better chip architecture. The machinist is not a bottleneck you can engineer around.</p>
+
+      <p>Consider the scale. If hyperscalers are spending $450 billion on AI infrastructure in 2026, and even a conservative 2–5% of that represents machined components, that's $9–22 billion in machining demand — from AI datacenters alone, in a single year. That demand hits a workforce of 354,800 machinists who are already serving every other sector of the economy: automotive, aerospace, defense, medical devices, energy, consumer electronics.</p>
+
+      <div class="data-callout">
+        <p><strong>The per-GPU machining cost is small. The aggregate is not.</strong></p>
+        <p>At the component level, the CNC machining content per GPU works out to roughly $150–530 — dominated by the cold plate ($100–250 in machining per plate) plus a share of rack-level power distribution and structural hardware. Trivial per chip. But multiply by 108,000 GPUs in a single 100MW facility, and you get $16–57 million in machining per datacenter. Multiply by 160–200 facilities per year, and you reach $8–20 billion in annual demand from datacenters alone.</p>
+      </div>
+
+      <p>The liquid cooling transition makes this especially acute. When the industry was building air-cooled datacenters, the machining content per facility was significant but manageable — mostly structural components, heat sinks, and power distribution hardware. Liquid cooling changes the equation entirely. Every server needs a cold plate. Every cooling loop needs manifolds. The machined component count per rack goes from dozens to hundreds. And the tolerances get tighter, because a poorly machined cold plate means a hot spot, which means a throttled GPU, which means degraded training performance across your $100 million cluster.</p>
+
+      <p>This is not a problem you can solve by building a new factory. Hadrian, to their credit, raised $260 million from Founders Fund and Lux Capital to try exactly that — building AI-powered automated machining factories from scratch. It's an admirable effort. But even Hadrian's approach requires years to build, commission, and ramp each new factory. The immediate constraint isn't machines. It's the people who operate them, and the knowledge they carry about how to make parts that actually work.</p>
+
+      <p>There's an irony here that's worth naming explicitly. The AI industry — the industry that believes it's building the technology to automate cognitive work — is entirely dependent on a form of cognitive work it doesn't know how to automate: the judgment of an experienced machinist deciding how to hold a part, which tool to run first, what feeds and speeds will work in this specific material on this specific machine, and how to handle the seventeen things that can go wrong between the CAM program and the finished component.</p>
+
+      <hr>
+
+      <h2 id="two-masters">The Same Workforce, Two Masters</h2>
+
+      <p>If it were only the AI buildout competing for machinists, it would be concerning enough. But here's the compounding problem: the defense industrial base needs the same people.</p>
+
+      <p>The Pentagon has spent the last three years discovering — painfully, publicly — that the US can no longer manufacture at the scale its commitments require. The evidence is everywhere:</p>
+
+      <p>155mm artillery shell production tells the story most starkly. Before Ukraine, the US produced 14,000 rounds per month — barely enough for peacetime training. After two years of frantic effort, production reached 40,000 rounds per month by late 2024. The target was 100,000. The Army has repeatedly missed its own deadlines. As of mid-2025, production is still at 40,000. The revised target date for 100,000 rounds per month is mid-2026, and nobody I've spoken to believes it will be met.</p>
+
+      <p>This is a relatively simple munition. A shell casing, a propellant charge, a fuze. The US couldn't triple production in three years.</p>
+
+      <p>The F-35 program shows the same dysfunction at the high end. As of early 2025, Lockheed Martin's assembly line had over 4,000 parts shortages — double historic levels. Fifty-two aircraft were stalled in final assembly waiting for components. The GAO flagged 238-day delivery delays. These aren't delays caused by chip shortages or rare earth metals. They're caused, in significant part, by an insufficient supply chain of machine shops capable of making the parts to spec, on time, in volume.</p>
+
+      <p>The Heritage Foundation warned in 2025 that the US defense industrial base has "slowly declined as domestic defense production has consolidated and American manufacturing has moved overseas." The National Defense University assessed that "the United States lacks the munitions production capacity to meet the demands of the contemporary strategic environment." The Pentagon itself released its first-ever National Defense Industrial Strategy in January 2024, acknowledging the need for "resilient supply chains" and "workforce readiness."</p>
+
+      <p>All of these reports point to the same root cause: not enough people who know how to make things.</p>
+
+      <p>And now the AI buildout is competing with the defense buildout for the same shrinking pool of machinists. The same shops that make cold plates for NVIDIA also make turbine components for Pratt & Whitney. The same CNC operators who could be machining manifolds for datacenter cooling systems are the ones Lockheed Martin needs for F-35 subassemblies. It's a zero-sum game played over a workforce that's getting smaller every year.</p>
+
+      <p>A senior Lockheed Martin executive put it bluntly: they could not hire all the machinists in the world and be able to make what they're being asked to make by the Pentagon.</p>
+
+      <p>Now add $450 billion in AI infrastructure demand on top.</p>
+
+      <hr>
+
+      <h2 id="market">Why the Market Hasn't Noticed</h2>
+
+      <p>If you're a venture capitalist reading this, you might reasonably ask: if the constraint is this obvious, why isn't the market already responding?</p>
+
+      <p>Three reasons.</p>
+
+      <p><strong>First, the AI investment thesis is built entirely on the digital side.</strong> When VCs and analysts model the AI buildout, they model chips, data, power, and models. They model NVIDIA's order book and TSMC's capacity and the cost of electricity in West Texas. They do not model the physical supply chain between "capital allocation" and "operational datacenter." The assumption — usually implicit, sometimes explicit — is that construction is a solved problem. It isn't. But nobody with a Bloomberg terminal is tracking the machinist workforce.</p>
+
+      <p><strong>Second, the shortage manifests as lead times, not as outright failure.</strong> Shops don't turn away work — they just quote longer delivery windows. The cold plate that should take three weeks takes eight. The manifold that used to take four weeks takes twelve. The AI companies getting their datacenters built six months late don't trace the delay back to a machining bottleneck in Ohio. They see it as a "construction delay" and write a bigger check. The bottleneck is invisible to everyone who doesn't know how supply chains actually work.</p>
+
+      <p><strong>Third, the problem straddles two worlds that don't talk to each other.</strong> AI people don't think about manufacturing. Manufacturing people don't think about AI (the technology, not the application). The person who understands GPU cooling architecture and the person who runs a five-axis CNC mill are typically not in the same room, not at the same conferences, not reading the same publications. The dependency exists in the physical world but is invisible in the informational world where investment decisions get made.</p>
+
+      <p>This is why the problem is actually dangerous, not just interesting. A known bottleneck attracts capital and talent. An invisible bottleneck just quietly constrains everything downstream until something breaks.</p>
+
+      <hr>
+
+      <h2 id="compound">The Compound Problem</h2>
+
+      <p>Let me state the full picture plainly, because I haven't seen anyone else do it.</p>
+
+      <p>The AI industry is planning to spend trillions of dollars building physical infrastructure over the next five years. That infrastructure requires precision-machined components at a scale that exceeds current capacity. The workforce that makes those components is shrinking. The defense industry — which is attempting to rearm at a pace not seen since the Cold War — needs the same workforce. Wages in the trade are stagnant because the shops can't absorb increases without losing contracts. The training pipeline is broken, producing a fraction of the machinists needed. And the transition from air-cooled to liquid-cooled datacenters is multiplying the machined component count per facility at exactly the moment when capacity is most constrained.</p>
+
+      <p>This is not a market failure in the traditional sense. No individual actor is making an irrational decision. Hyperscalers are rationally spending on AI infrastructure. Defense primes are rationally trying to fulfill Pentagon contracts. Machine shops are rationally quoting longer lead times and hiring whoever walks through the door. Young people are rationally choosing careers that pay better and don't require years of apprenticeship. Everyone is individually rational. The system is collectively heading for a wall.</p>
+
+      <p>The intelligence explosion has a supply chain. Right now, that supply chain is a 57-year-old machinist in Cincinnati who's three years from retirement, running a Haas VF-2 at a shop that can't find anyone to replace him. The trillion-dollar clusters, the 100-gigawatt power plants, the liquid cooling systems — they all flow through him. And through the 354,800 people like him, of whom 134,000 are over fifty and the BLS projects there will be 5,900 fewer of in a decade.</p>
+
+      <p>Leopold mapped the intelligence explosion in compute. He did it brilliantly. But intelligence — artificial or otherwise — doesn't run on math alone. It runs on machines. And machines are made by machinists.</p>
+
+      <hr>
+
+      <h2 id="what-needs-to-happen">What Actually Needs to Happen</h2>
+
+      <p>I've spent ten years in this space — building an AI company that serves CNC machine shops, operating our own factory, watching this workforce crisis unfold in real time from inside the industry. I'm not going to pretend this is a problem with a simple solution. But I'll lay out what I think the actual levers are.</p>
+
+      <p><strong>The machinist has to become more productive.</strong> Not replaced — more productive. The constraint isn't machines (most shops run at less than 50% spindle utilization). The constraint is the programming bottleneck: the skilled human time between "customer sends a drawing" and "machine starts cutting." If you can compress that time — through better software, through AI-assisted CAM programming, through toolpath automation — you effectively multiply the capacity of every machinist in the system without hiring a single new person. This is the lever with the shortest time to impact.</p>
+
+      <p><strong>Training has to be rebuilt from scratch.</strong> The current apprenticeship model is a relic. Writing G-code with pencils. Spending two years on manual machines before touching CNC. Four-year courses stuffed with material the apprentice will never use again. We take young, computer-literate people and put them through a training program designed in the 1970s, then wonder why they don't stay. Apprentices should be on a CNC machine with CAM software on day one. Simulators, AI tools, modern workflows — start at the highest level of automation and train above it. And pay them properly.</p>
+
+      <p><strong>The AI industry needs to map its physical supply chain.</strong> This is table stakes. If you're spending $100 billion on datacenter infrastructure, you should know — quantitatively — how many precision-machined cold plates you need, where they're coming from, what the lead times are, and what happens to your timeline if three of your key machining suppliers lose their senior operators to retirement next year. Right now, most hyperscalers couldn't answer this question. They contract with construction firms who contract with system integrators who contract with cooling OEMs who contract with machine shops. The machining dependency is four layers removed from the check-writer, and nobody is modeling it.</p>
+
+      <p><strong>Software has to eat the programming bottleneck.</strong> I have an obvious interest here — my company, CloudNC, builds AI-powered CAM software — so take this with appropriate salt. But the structural argument doesn't depend on any single company. The point is this: there are more ways to machine a typical component than there are atoms in the universe. CNC programming is one of the hardest combinatorial problems in computer science. And right now, it's done by scarce, expensive, aging humans one program at a time. Any technology that compresses programming time — from hours to minutes, from a senior machinist's exclusive domain to something a trained operator can do — directly expands the effective capacity of the manufacturing base. The math is simple: if a machinist who programs two parts a day can program ten, the shop's throughput goes up 5x without a single new hire.</p>
+
+      <hr>
+
+      <h2 id="bridge">The Bridge to Part 2</h2>
+
+      <p>Everything I've described so far is about the AI supply chain — the trillion-dollar buildout and the physical workforce it depends on. But the AI buildout is only half the story.</p>
+
+      <p>The United States is simultaneously attempting to reshore its manufacturing base, rearm its military, and rebuild industrial capacity that's been hollowed out over forty years of offshoring. The same machinists who make cold plates for datacenters make turbine blades for jet engines. The same CNC skills that program cooling manifolds program missile housings. The defense industrial base and the AI infrastructure buildout are drawing from the same well, and the well is running dry.</p>
+
+      <p>If you think the AI supply chain is stressed, wait until you see what the Pentagon needs.</p>
+
+      <p><a href="part-2.html">That's Part 2 →</a></p>
+
+    </article>
+
+    <section class="sources">
+      <h2>Sources &amp; Data</h2>
+      <ul>
+        <li>Bureau of Labor Statistics, Occupational Outlook Handbook: Machinists and Tool and Die Makers (2024 data)</li>
+        <li>Data USA / American Community Survey 2023: Machinist workforce age demographics</li>
+        <li>CreditSights / IEEE ComSoc (Dec 2025): Hyperscaler capex projections</li>
+        <li>Deloitte &amp; The Manufacturing Institute (2021): 2.1M manufacturing jobs gap study</li>
+        <li>MarketsAndMarkets, GMInsights, IndustryARC: Datacenter liquid cooling market projections</li>
+        <li>Heritage Foundation (2025): US Defense Industrial Base assessment</li>
+        <li>GAO Report GAO-24-106909: F-35 parts shortages</li>
+        <li>Breaking Defense, National Defense Magazine: 155mm shell production data</li>
+        <li>Pentagon National Defense Industrial Strategy (Jan 2024)</li>
+        <li>National Defense University Press (Dec 2025)</li>
+        <li>Tom's Hardware (Nov 2025): NVL72 cooling BOM data ($49,860/rack)</li>
+        <li>NVIDIA Technical Blog (May 2025): 800VDC architecture, copper busbar quantities</li>
+        <li>JLL 2026 Global DC Outlook: 97 GW new datacenter capacity 2025–2030</li>
+        <li>IDTechEx (Jan 2025): Direct-to-chip cold plate system pricing</li>
+      </ul>
+    </section>
+
+    <div class="author-bio">
+      Theo Saville is the CEO and Co-Founder of CloudNC, which builds AI-powered CAM software for CNC machining. He holds an MEng in Manufacturing &amp; Mechanical Engineering from the University of Warwick and has spent 10 years in the machining industry. He still visits the factory floor regularly. CloudNC has raised $108.5 million from investors including Autodesk, Lockheed Martin, and In-Q-Tel.
+    </div>
+
+    <nav class="essay-nav">
+      <a href="index.html">← Home</a>
+      <a href="part-2.html">Part II: The Last American Advantage →</a>
+    </nav>
+
+    <footer class="site-footer">
+      &copy; 2026 Theo Saville
+    </footer>
+  </div>
+</body>
+</html>
